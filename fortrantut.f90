@@ -1,16 +1,11 @@
 program fortrantut
     implicit none
 
-    integer :: age = 16
-    select case(age)
-    case (5)
-        print *, "Kindergarden"
-    case (6:13)
-        print *, "Middle school"
-    case (14, 15, 16, 17, 18)
-        print *, "High school"
-    case default
-        print *, "Stay Home"
-    end select
+    integer :: n = 0, m = 1
+    integer :: secret_num = 7
+
+    do n = 1, 10, 2
+        print "(i1)", n
+    end do
 
 end program fortrantut
