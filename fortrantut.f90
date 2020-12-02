@@ -8,11 +8,10 @@ program fortrantut
     real :: rand(1)
     integer :: low = 1, high = 10
 
-    print "(a8, i1)", "5 + 4 = ", (5 + 4)
-    print "(a8, i1)", "5 - 4 = ", (5 - 4)
-    print "(a8, i2)", "5 * 4 = ", (5 * 4)
-    print "(a8, i1)", "5 / 4 = ", (5 / 4)
-    print "(a8, i1)", "5 % 4 = ", mod(5, 4)
-    print "(a8, i3)", "5**4 = ", (5**4)
+    print "(f17.15)", float_num + float_num2
+    print "(f17.15)", dbl_num + dbl_num2
+
+    call random_number(rand)
+    print "(i2)", low + floor((high + 1 - low) * rand)
 
 end program fortrantut
