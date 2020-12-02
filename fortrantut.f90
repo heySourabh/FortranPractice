@@ -2,19 +2,15 @@ program fortrantut
     implicit none
 
     integer :: age = 16
-    if((age >= 5) .and. (age <= 6)) then
+    select case(age)
+    case (5)
         print *, "Kindergarden"
-    else if ((age >= 7) .and. (age <= 13)) then
+    case (6:13)
         print *, "Middle school"
-    else if ((age >= 14) .and. (age <= 18)) then
+    case (14, 15, 16, 17, 18)
         print *, "High school"
-    else 
-        print *, "Stay home"
-    end if
-
-    print *, .true. .or. .false.
-    print *, .not. .true.
-    print *, 5 /= 9
-    print *, "a" < "b"
+    case default
+        print *, "Stay Home"
+    end select
 
 end program fortrantut
