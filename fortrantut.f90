@@ -50,4 +50,30 @@ program fortrantut
     print "(a11, i2)", "Rank: ", rank(a4)
     print "(a11, i2)", "Shape: ", shape(a4)
 
+    print *, "Size of array? "
+    read *, num_vals
+    allocate(a5(1:num_vals))
+
+    do n = 1, num_vals
+        a5(n) = n
+    end do
+    do n = 1, num_vals
+        print "(i1)", a5(n)
+    end do
+
+    a2 = (/1, 2, 4, 6, 7/)
+
+    print "(10i2)", (a2(m), m = 1,5)   ! implied loop
+
+    a7 = reshape(a6, (/3, 3/))
+    
+    print "(l1)", all(a1 == a2, 1)
+    print "(l1)", any(a1 == a2, 1)
+    print "(l1)", count(a1 == a2, 1)
+    print "(i3)", maxval(a1)
+    print "(i3)", minval(a1)
+
+    print "(i3)", product(a1)
+    print "(i2)", sum(a1)
+
 end program fortrantut
