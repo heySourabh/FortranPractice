@@ -1,20 +1,19 @@
 program fortrantut
     implicit none
 
-    integer :: num, cups
-    real :: liters, quarts
+    character (len=30) :: str1 = "I'm a string"
+    character (len=30) :: str2 = " that is longer"
+    character (len=30) :: str3
 
-    do num = 1, 12
-        print 100, num, num * 7
-        100 format(i2, " * 7 = ", i3)
-    end do
+    str3 = trim(str1) // trim(str2)   ! remove extra blank characters and concatenate the strings 
 
-    print "(/a18)", "Cups Liters Quarts"
-    do cups = 1, 10
-        liters = cups * 0.236
-        quarts = cups * 0.208
-        print 200, cups, liters, quarts
-        200 format(" ", i3, 2x, f5.3, 2x, f5.3)
-    end do
+    print *, str3
+
+    print *, str3(1:3)  ! first 3 characters of the string
+
+    print "(a9, i1)", "Index at ", index(str1, "string")
+
+    print *, "Before trimimg", len(str1)
+    print *, "After trimimg", len(trim(str1))
 
 end program fortrantut
