@@ -1,19 +1,28 @@
 program fortrantut
     implicit none
 
-    character (len=30) :: str1 = "I'm a string"
-    character (len=30) :: str2 = " that is longer"
-    character (len=30) :: str3
+    type Customer
+        character (len=40) :: name
+        integer :: age
+        real :: balance
+    end type Customer
 
-    str3 = trim(str1) // trim(str2)   ! remove extra blank characters and concatenate the strings 
+    type(Customer), dimension(5) :: customers
+    integer :: n
 
-    print *, str3
+    type(Customer) :: cust1
+    cust1%name = "Sourabh Bhat"
+    cust1%age = 36
+    cust1%balance = 324.50
 
-    print *, str3(1:3)  ! first 3 characters of the string
+    customers(1) = cust1
 
-    print "(a9, i1)", "Index at ", index(str1, "string")
+    customers(2)%name = "Second customer"
+    customers(2)%age = 52
+    customers(2)%balance = 78.45
 
-    print *, "Before trimimg", len(str1)
-    print *, "After trimimg", len(trim(str1))
+    do n=1, 2
+        print *, customers(n)
+    end do
 
 end program fortrantut
