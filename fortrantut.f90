@@ -1,16 +1,12 @@
 program fortrantut
+    use mult_mod
     implicit none
-    print *, "factorial(4) is", factorial(4)
 
-    contains
-    recursive function factorial(n) result(o)
-        integer :: n, o
-        if(n == 1) then
-            o = 1
-        else
-            o = n * factorial(n-1)
-        end if
-    end function factorial
+    real :: r_ans
 
+    print *, "5 * 4 = ", mult(5, 4)
+
+    r_ans = mult(5.1, 4.4)
+    print *, "5.1 * 4.4 = ", r_ans
 
 end program fortrantut
