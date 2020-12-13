@@ -1,28 +1,42 @@
 program fortrantut
     implicit none
 
-    type Customer
-        character (len=40) :: name
-        integer :: age
-        real :: balance
-    end type Customer
+    integer ans
+    ans = get_sum(4, 5)
+    print "(a8, i1)", "4 + 5 = ", ans
 
-    type(Customer), dimension(5) :: customers
-    integer :: n
+    print *, "Sum of 4 & 5 is ", get_sum_with_optional(4, 5)
+    print *, "Sum of 4 & _ is ", get_sum_with_optional(4)
 
-    type(Customer) :: cust1
-    cust1%name = "Sourabh Bhat"
-    cust1%age = 36
-    cust1%balance = 324.50
+    contains
+    integer function get_sum(n1, n2)
+        implicit none
+        integer :: n1, n2
+        integer :: sum
 
-    customers(1) = cust1
+        sum = n1 + n2    ! sum will be returned as it is the last line of the function
+    end function get_sum
 
-    customers(2)%name = "Second customer"
-    customers(2)%age = 52
-    customers(2)%balance = 78.45
+    function get_sum2(n1, n2) result(sum)
+        implicit none
+        integer, intent(in) :: n1, n2
+        integer :: sum
 
-    do n=1, 2
-        print *, customers(n)
-    end do
+        sum = n1 + n2
+    end function get_sum2
+
+    pure function get_sum_with_optional(n1, n2) result(sum)
+        implicit none
+        integer, intent(in) :: n1
+        integer, intent(in), optional :: n2
+        integer sum
+
+        if(present(n2)) then
+            sum = n1 + n2
+        else
+            sum = n1
+        end if
+    end function get_sum_with_optional
+
 
 end program fortrantut
