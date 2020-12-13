@@ -1,24 +1,23 @@
 program fortrantut
     implicit none
 
-    integer :: n
-    integer :: p1 
-    integer :: p2
+    integer, pointer :: ptr1, ptr2
 
-    n = 1
-    call plus_two(n, p1, p2)
+    integer, pointer, dimension(:) :: a_ptr1  ! Array pointer
 
-    print "(i1, /, i1, /, i1)", n, p1, p2
+    integer, target :: target1
+    allocate(ptr1)
 
-    contains
+    ptr1 = 5
+    print "(a5,i1)", "ptr1 ", ptr1
 
-    subroutine plus_two(i, plus1, plus2)
-        integer, intent(in) :: i
-        integer, intent(out) :: plus1, plus2
+    ptr2 => target1
+    ptr2 = 1
+    ptr2 = ptr2 + 2
 
-        plus1 = i + 1
-        plus2 = i + 2
-
-    end subroutine plus_two
+    print "(a5, i1)", "prt1 ", ptr1
+    print "(a5, i1)", "tar1 ", target1
+    nullify(ptr2)
+    deallocate(ptr1)
 
 end program fortrantut
