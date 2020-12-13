@@ -1,5 +1,4 @@
 program fortrantut
-    use mult_mod
     implicit none
 
     integer :: n
